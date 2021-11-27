@@ -6,8 +6,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = async (env, argv) => {
-	
-    const isDevelopment = argv.mode === 'development';
+
+	const isDevelopment = argv.mode === 'development';
+	const HOST = process.env.HOST || 'localhost';
+	const PORT = process.env.PORT || 3000;
 
 	return {
 		mode: argv.mode,
@@ -27,7 +29,7 @@ module.exports = async (env, argv) => {
 				],
 			}),
 			new HtmlWebpackPlugin({
-				showErrors:true,
+				showErrors: true,
 				template: require("html-webpack-template"),
 				prefix: "/",
 				appMountId: "root",
@@ -111,7 +113,6 @@ module.exports = async (env, argv) => {
 						},
 					],
 				}
-
 			]
 		},
 		resolve: {
@@ -120,6 +121,18 @@ module.exports = async (env, argv) => {
 				'@': path.resolve(__dirname, 'src/'),
 				'@common': path.resolve(__dirname, 'src/react/common')
 			},
+		},
+		devServer: {
+			compress: true,
+			historyApiFallback: true,
+			host: HOST,
+			open: true,
+			port: PORT,
+			static: [
+				{
+					publicPath: '/'
+				}
+			]
 		},
 	};
 };
