@@ -1,0 +1,36 @@
+.step {
+    .form-row {
+        margin: 10px 0;
+        label {
+            font-size: 1.6rem;
+            font-style: italic;
+        }
+        .small-label {
+            font-size: 0.8rem;
+        }
+    }
+
+    .step-one {
+        p {
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+        .fade-in {
+            animation: fadeInAnimation 1s linear;
+        }
+        @keyframes fadeInAnimation {
+            0% {
+                pacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    }
+
+    .step-three {
+        .form-check-input {
+            margin: 10px 0 0 10px;
+        }
+    }
+}

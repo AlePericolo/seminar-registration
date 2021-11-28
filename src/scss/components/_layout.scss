@@ -1,0 +1,33 @@
+header {
+    background-color: $primary;
+    color: $white;
+    height: 60px;
+    text-align: center;
+    h1 {
+        margin: 10px 0;
+        font-weight: bold;
+    }
+}
+
+main{
+    padding: 10px;
+    min-height: calc(100vh - 90px); 
+}
+
+footer {
+    background-color: $primary;
+    color: $white;
+    height: 30px; 
+    text-align: center;
+    padding: 5px 0;
+    font-size: 1rem;
+}
+
+@media only screen and (max-width: map-get($grid-breakpts, "sm")) {
+	header {
+        height: 100px;
+	}
+    main{
+        min-height: calc(100vh - 130px); 
+    }
+}
