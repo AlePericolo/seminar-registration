@@ -8,7 +8,13 @@ $ cd seminar-registration
 $ npm i
 ```
 
-## Common Scripts
+### Dev Scripts
+
+```sh
+$ npm run dev
+```
+
+## Build Scripts
 
 ```sh
 $ npm run build

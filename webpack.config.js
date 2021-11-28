@@ -21,7 +21,6 @@ module.exports = async (env, argv) => {
 		},
 		plugins: [
 			new webpack.ProgressPlugin(),
-			...buildCleaner(isDevelopment),
 			new CopyWebpackPlugin({
 				patterns: [
 					//{ from: "src/assets/js", to: "assets/js" },
@@ -34,13 +33,14 @@ module.exports = async (env, argv) => {
 				prefix: "/",
 				appMountId: "root",
 				minify: true,
+				favicon: 'src/assets/icons/favicon.ico',
 				title: "Seminar Registration",
 			}),
 			new MiniCssExtractPlugin({
 				filename: "/assets/css/[name]-[hash].css",
-				//chunkFilename: "/assets/css/[name]-[hash].css"
 			}),
 			...hotReloadPlugin(isDevelopment),
+			...buildCleaner(isDevelopment)
 		],
 		cache: false,
 		context: path.resolve(__dirname),
@@ -64,18 +64,11 @@ module.exports = async (env, argv) => {
 					],
 				},
 				{
-					test: /\.scss$/,
+					test: /\.s[ac]ss$/i,
 					use: [
-						{
-							loader: MiniCssExtractPlugin.loader,
-							options: {
-								publicPath: '/assets/scss/',
-							},
-						},
-						'css-loader',
-						{
-							loader: "sass-loader"
-						},
+						"style-loader",
+						"css-loader",
+						"sass-loader",
 					],
 				},
 				{
