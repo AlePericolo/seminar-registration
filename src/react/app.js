@@ -1,10 +1,21 @@
-import "babel-polyfill";
-
 import React from 'react';
-import reactDom from 'react-dom';
+import ReactDOM from "react-dom";
+
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+
+import { store, persistor } from '@/store/store';
+
+import Layout from "@/components/ui/layout";
 
 import "@/scss/main.scss";
 
-const template = React.createElement('h1', null, 'Hello World!')
-
-reactDom.render(template, document.getElementById('root'))
+ReactDOM.render(
+        <Provider store={store}>
+            <PersistGate loading={<div>Loading...</div>} persistor={persistor}>
+                <Layout />
+            </PersistGate>
+        </Provider>
+    ,
+    document.getElementById('root')
+);
