@@ -8,7 +8,7 @@ $ cd seminar-registration
 $ npm i
 ```
 
-### Dev Scripts
+## Dev Scripts
 
 ```sh
 $ npm run dev
@@ -27,6 +27,6 @@ $ docker build -t seminar-registration .
 $ docker run -d --name seminar-registration-fe -p 8080:80 seminar-registration  
 ```
 
-## Frontend Preview
+### Frontend Preview
 
 http://localhost:8080/
