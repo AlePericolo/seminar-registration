@@ -24,7 +24,8 @@ module.exports = async (env, argv) => {
 			new CopyWebpackPlugin({
 				patterns: [
 					//{ from: "src/assets/js", to: "assets/js" },
-					{ from: "src/assets/images", to: "assets/images" }
+					{ from: "src/assets/images", to: "assets/images" },
+					{ from: "src/assets/icons", to: "assets/icons" }
 				],
 			}),
 			new HtmlWebpackPlugin({
