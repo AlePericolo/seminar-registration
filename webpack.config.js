@@ -14,7 +14,7 @@ module.exports = async (env, argv) => {
 	return {
 		mode: argv.mode,
 		cache: false,
-		entry: path.resolve(__dirname, "src/react/app.js"),
+		entry: path.resolve(__dirname, "src/index.js"),
 		output: {
 			path: path.resolve(__dirname, 'build'),
 			filename: 'js/[name]-[hash].min.js',
